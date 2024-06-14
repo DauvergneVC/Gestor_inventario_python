@@ -6,7 +6,7 @@ drop table if exists USUARIOS;
 
 create table if not exists USUARIOS(
 u_id int auto_increment primary key,
-u_correo varchar(50) not null,
+u_user varchar(50) not null,
 u_contraseña varchar(16) not null
 );
 
