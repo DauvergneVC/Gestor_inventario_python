@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 
 from controllers.register_controler import registrar
+from controllers.login_controller import login
 
 def LoginWindow(cn):
   # Definición de la ventana principal
@@ -32,8 +33,8 @@ def LoginWindow(cn):
   entrada_contrasena.pack()
   
   # Botón de inicio de sesión
-  #boton_inicio_sesion = tk.Button(ventana, text="Iniciar sesion", command=lambda: iniciar_sesion(entrada_usuario.get(), entrada_contrasena.get()))
-  #boton_inicio_sesion.pack(pady=10)
+  boton_inicio_sesion = tk.Button(ventana, text="Iniciar sesion", command=lambda: login(cn, entrada_usuario.get(), entrada_contrasena.get(), ventana))
+  boton_inicio_sesion.pack(pady=10)
   
   # Botón de registrarse 
   boton_crear_usuario = tk.Button(ventana, text="Registrase", command=lambda: registrar(cn, entrada_usuario.get(), entrada_contrasena.get()))
