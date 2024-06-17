@@ -4,6 +4,7 @@ from tkinter import messagebox
 from utils.helpers import existeUsuario
 
 # Switch Windows
+from gui.main_windows import DashboarWindow
 
 
 def login(cn, user, password, window):
@@ -19,10 +20,10 @@ def login(cn, user, password, window):
         # Estalecer contraseña correcta desde la base de datps
         correctPassword = cursor.fetchone()
         cn.close()
-        messagebox.showinfo("Problema", correctPassword)
 
         # Comparar contraseñas
         if str(correctPassword[0]) == password:
             window.destroy()  # Cerrar la ventana actual
+            DashboarWindow(cn, user)
         else:
             messagebox.showinfo("Problema", "La contraseña no es correcta")
