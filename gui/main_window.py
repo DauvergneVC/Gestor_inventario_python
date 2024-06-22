@@ -18,7 +18,8 @@ def mainWindow(user):
     etiqueta_inventario.pack(pady=10)  
     
     # Obtener inventario y mostrarlos
-    loadInventory(user, ventana_dashboard)
+    getInventory(ventana_dashboard, user)
+    
 
     frame_botones = tk.Frame(ventana_dashboard, bg="lightblue", padx=10, pady=10, relief=tk.RIDGE, bd=2)
     frame_botones.pack(side=tk.RIGHT, anchor=tk.N, padx=20, pady=20)
@@ -45,5 +46,5 @@ def agregar(user, ventana_dashboard):
 
 
 # Inventory helper
-def loadInventory(user, ventana_dashboard):
-    getInventory(user, ventana_dashboard)
+def loadInventory(user):
+    getInventory(user)
