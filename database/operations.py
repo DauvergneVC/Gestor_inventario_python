@@ -39,7 +39,7 @@ def delete(item_id):
     cn._open_connection()
     cursor=cn.cursor()
     
-    cursor.execute("DELETE FROM inventario WHERE i_id = {0}".format(item_id))
+    cursor.execute("DELETE FROM INVENTARIO WHERE i_id = {0}".format(item_id))
     
     cn.commit()
     cn.close()
@@ -51,7 +51,7 @@ def obtenerInventario(user):
     cn._open_connection()
     cursor = cn.cursor()
     
-    cursor.execute('SELECT i_id, i_nombre, i_marca, i_cantidad FROM inventario WHERE u_id = (select u_id from usuarios where u_user ="{0}")'.format(user))
+    cursor.execute('SELECT i_id, i_nombre, i_marca, i_cantidad FROM INVENTARIO WHERE u_id = (select u_id from USUARIOS where u_user ="{0}")'.format(user))
 
     # agregar items a Array
     for item in cursor.fetchall():
@@ -66,7 +66,7 @@ def loginRelization(user, password):
     cn._open_connection()
     cursor = cn.cursor()
     
-    cursor.execute('SELECT u_contraseña FROM usuarios WHERE u_user = "{0}"'.format(user))
+    cursor.execute('SELECT u_contraseña FROM USUARIOS WHERE u_user = "{0}"'.format(user))
     # Estalecer contraseña correcta desde la base de datps
     correctPassword = cursor.fetchone()
     cn.close()
@@ -81,7 +81,7 @@ def registerOperation(user, password):
     cn._open_connection()
     cursor = cn.cursor()
     
-    cursor.execute('INSERT INTO usuarios (u_user, u_contraseña) VALUES (%s,%s)',(user,password))
+    cursor.execute('INSERT INTO USUARIOS (u_user, u_contraseña) VALUES (%s,%s)',(user,password))
     cn.commit() 
     
     cn.close()
@@ -91,7 +91,7 @@ def registerOperation(user, password):
 def existeUsuario(user):
     cn._open_connection()
     cursor = cn.cursor()
-    cursor.execute('SELECT COUNT(*) FROM usuarios WHERE u_user = "{0}"'.format(user))
+    cursor.execute('SELECT COUNT(*) FROM USUARIOS WHERE u_user = "{0}"'.format(user))
     
     users = cursor.fetchone()[0]
     
@@ -122,7 +122,7 @@ def obtenerIdPersona(user):
     cn._open_connection()
     cursor = cn.cursor()
     
-    cursor.execute('SELECT u_id FROM usuarios WHERE u_user = "{0}"'.format(str(user)))
+    cursor.execute('SELECT u_id FROM USUARIOS WHERE u_user = "{0}"'.format(str(user)))
     
     id = cursor.fetchone()[0]
     

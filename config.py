@@ -1,5 +1,5 @@
 # DataBase config
-DB_HOST = 'localhost'
-DB_USER = 'root'
-DB_PASSWORD = 'VHHmWDiJ'
-DB_NAME = 'gestor_inventario'
+DB_HOST = 'mysql-gestorinventariopython.alwaysdata.net'
+DB_USER = '362665_inventory'
+DB_PASSWORD = 'vjrb1234'
+DB_NAME = 'gestorinventariopython_database'
