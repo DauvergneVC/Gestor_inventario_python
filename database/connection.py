@@ -1,5 +1,6 @@
 import mysql.connector
 from mysql.connector import Error
+from tkinter import messagebox
 
 # DB config
 from config import DB_HOST, DB_USER, DB_PASSWORD, DB_NAME
@@ -12,8 +13,7 @@ def create_connection():
             password= DB_PASSWORD,
             database= DB_NAME
         )
-        print("Conexión a MySQL exitosa")
     except Error as e:
-        print(f"El error '{e}' ocurrió")
+        messagebox.showinfo(f"El error '{e}' ocurrió")
 
     return cn

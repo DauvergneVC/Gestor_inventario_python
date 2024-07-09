@@ -8,7 +8,6 @@ from database.operations import obtenerInventario,delete, obtenerIdPersona, add,
 
 def getInventory(window, user):
     inventory = obtenerInventario(user)
-    print (list(inventory))
     listView(window, inventory)
     
     
